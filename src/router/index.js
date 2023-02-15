@@ -6,6 +6,7 @@ import Create from "../views/AddProduct.vue";
 import Edit from "../views/EditProduct.vue";
 import Index from "../views/ProductList.vue";
 import UploadFile from "../views/AddFiles.vue";
+import ViewFiles from "../views/ViewFiles.vue";
 
 const routes = [
   // {
@@ -17,6 +18,11 @@ const routes = [
     path: "/upload",
     name: "upload",
     component: UploadFile,
+  },
+  {
+    path: "/viewFiles",
+    name: "viewFiles",
+    component: ViewFiles,
   },
   {
     path: "/login",

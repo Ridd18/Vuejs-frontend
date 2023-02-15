@@ -32,14 +32,16 @@ export default {
     onSelect() {
       const file = this.$refs.file.files[0]; // accessing file
       this.file = file;
+      this.fileName = file.name;
     },
     async onSubmit() {
       const formData = new FormData();
 
-      formData.append("file", this.file);
+      formData.append("file", this.file, this.fileName);
 
       try {
         await axios.post("http://localhost:5000/upload", formData);
+        console.log(this.fileName);
         this.message = "file uploaded successfully";
         // this.file = "";
       } catch (error) {
