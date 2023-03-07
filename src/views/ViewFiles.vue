@@ -3,13 +3,24 @@
     <table class="table is-striped is-bordered mt-2 is-fullwidth">
       <thead>
         <tr>
-          <th>Image Name</th>
+          <th>File Name</th>
           <th class="has-text-centered">Download</th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="item in items" :key="item.file_id">
-          <td>{{ item.file_name }}</td>
+          <td>{{ item.name }}</td>
+          <td>
+            <button class="btn"><i class="fa fa-download"></i> Download</button>
+          </td>
+          <!-- <div class="card">
+            <img src="jeans3.jpg" alt="Denim Jeans" style="width: 100%" />
+            <h1>Tailored Jeans</h1>
+            <p class="price">$19.99</p>
+            <p>Some text about the jeans..</p>
+            <p><button>Add to Cart</button></p>
+          </div> -->
+
           <!-- <td class="has-text-centered">
               <router-link
                 :to="{ name: 'Edit', params: { id: item.product_id } }"
@@ -44,6 +55,7 @@ export default {
     async getFiles() {
       try {
         const response = await axios.get("http://localhost:5000/files");
+        console.log(response.data);
         this.items = response.data;
       } catch (err) {
         console.log(err);
