@@ -11,25 +11,15 @@
         <tr v-for="item in items" :key="item.file_id">
           <td>{{ item.name }}</td>
           <td>
-            <button class="btn" @click="onClick(item.name)">
-              <i class="fa fa-download"></i> Download
-            </button>
+            <a
+              target="_blank"
+              :href="`http://localhost:5000/files/${item.name}`"
+            >
+              <button class="btn">
+                <i class="fa fa-download"></i> Download
+              </button>
+            </a>
           </td>
-          <!-- <div class="card">
-            <img src="jeans3.jpg" alt="Denim Jeans" style="width: 100%" />
-            <h1>Tailored Jeans</h1>
-            <p class="price">$19.99</p>
-            <p>Some text about the jeans..</p>
-            <p><button>Add to Cart</button></p>
-          </div> -->
-
-          <!-- <td class="has-text-centered">
-              <router-link
-                :to="{ name: 'Edit', params: { id: item.product_id } }"
-                class="button is-info is-small"
-                >Edit</router-link
-              >
-            </td> -->
         </tr>
       </tbody>
     </table>
